@@ -2,13 +2,14 @@ const express = require('express');
 // const { connection } = require('mongoose');
 require("./db/conn")
 const User = require("./model/user");
-
+const dotenv = require("dotenv")
+dotenv.config({path: "./config.env"});
 
 
 
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 app.use(express.json())
 
 
@@ -65,7 +66,7 @@ app.get("/user",async(req,res)=>
 
 
 
-app.listen(port,()=>
+app.listen(PORT,()=>
 {
-    console.log(`runing at: ${port}`);
+    console.log(`runing at: ${PORT}`);
 })
